@@ -1,0 +1,99 @@
+.la-List_Element {
+	white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+	#alternative-3 {
+		white-space: normal;
+	}
+}
+@media (min-width: 500px) {
+	.exit_button_area {
+		width: 500px;
+	}
+}
+@media (max-width: 454px) {
+	.exit_button_area {
+		.btn {
+			margin-bottom: 1rem;
+		}
+		.ingress {
+			padding-bottom: 0;
+		}
+	}
+}
+
+p.ingress {
+	margin: 0;
+	padding-bottom: 0.5rem;
+	line-height: 1.5em;
+	border-bottom: 0;
+}
+form.ingress {
+	margin: 0;
+	padding-bottom: 0.5rem;
+	line-height: 1.5em;
+	border-bottom: 0;
+}
+
+.exit_button_area {
+	padding: 2em 0 0 0;
+	margin: auto;
+	margin-bottom: 0;
+	.btn {
+		margin-bottom: 0;
+	}
+	.ingress {
+		margin-bottom: 0;
+	}
+}
+
+.text.disabled {
+	border-bottom: 1px solid #9fa9b4; // $c_medium_grey3
+	border-radius: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.fm-Fields {
+	background-color: #f2f2f2; // $c_light_grey_a
+	padding-bottom: 2em;
+}
+
+.ln-List {
+	background-color: #ffffff; // $c_white
+}
+
+.ln-List_Digitalpost {
+	background-color: #ffffff; // $c_white
+}
+
+#command {
+	background-color: #f2f2f2; // $c_light_grey_a
+}
+
+.Box {
+	border-bottom: none;
+}
+
+.fm-RadioButtons {
+	background-color: #ffffff; // $c_white
+	border-color: #d2d2d2; // $c_medium_grey2
+	input[type=radio] {
+		&+label {
+			border-bottom: 1px solid #d2d2d2; // $c_medium_grey2
+			padding: 0.5em 1em 0.5em 2.8571em;
+		}
+		&:hover {
+			&+label {
+				background-color: #f2f2f2; // $c_light_grey_a
+			}
+		}
+		&:focus {
+			&+label {
+				background-color: #f2f2f2; // $c_light_grey_a
+			}
+		}
+	}
+}
