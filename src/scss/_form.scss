@@ -1,0 +1,605 @@
+form {
+  //  display: flex;
+  //  flex-direction: column;
+}
+
+fieldset { // turn off default browser styles
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+legend, .legend-Style {
+  display: block;
+  font-size: $t_size-normal;
+  padding: 1rem 0;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  border-bottom: 1px solid $ca_legend-border;
+  @include apply-text-link();
+}
+// When legend comes after label span it has to follow the same margin
+.label + legend,
+.label + .legend-Style {
+  margin: {
+    top: $box-padding / 4;
+    bottom: 0;
+    left: $box-padding / 4;
+    right: 0;
+  }
+  padding: 0;
+  border-bottom: 0;
+}
+
+// Form fields placeholder
+.fm-Fields {
+  background-color: $c_white;
+  padding: $box-padding-vertical $box-padding-horizontal;
+  display: flex;
+  flex-direction: column;
+}
+
+// General form field
+.fm-Field {
+  display: flex;
+  flex-direction: column;
+  margin: {
+    top: $box-padding-vertical;
+  }
+  // First field in the form
+  &:first-child {
+    margin-top: 0;
+  }
+
+  // Error message inside field
+  &.error {
+    input, input[type=text], input[type=password], input[type=email], input[type=tel], textarea  {
+      border: 2px solid $c_error;
+      &:focus {
+        border-color: $c_blue;
+        margin-bottom: calc(#{$box-padding-vertical} / 2);
+      }
+    }
+    label, .label {
+      & + input, & + textarea {
+        &:focus {
+          margin-top: calc(#{$box-padding} / 4);
+          margin-left: 0;
+        }
+      }
+    }
+    & + .fm-Message {
+      color: $c_error;
+      display: block; // IE11
+      display: initial;
+    }
+    & + .fm-Message-warning,
+    & + .fm-Message + .fm-Message-warning {
+      display: none;
+    }
+  }
+
+  // Warning message inside field
+  &.warning {
+    input {
+      border: 2px solid $c_notification;
+      &:focus {
+        border-color: $c_blue;
+        margin-bottom: calc(#{$box-padding-vertical} / 2);
+      }
+    }
+    label, .label {
+      & + input, & + textarea {
+        &:focus {
+          margin-top: calc(#{$box-padding} / 4);
+          margin-left: 0;
+        }
+      }
+    }
+
+    & + .fm-Message {
+      display: none;
+    }
+    & + .fm-Message-warning,
+    & + .fm-Message + .fm-Message-warning {
+      display: block; // IE11
+      display: initial;
+    }
+
+    .fm-Field_EditLink {
+      border: 2px solid $c_notification;
+      border-radius: 4px;
+    }
+  }
+
+  &.warning.error {
+    input {
+      border-color: $c_error;
+      &:focus {
+        border-color: $c_blue;
+      }
+    }
+    & + .fm-Message {
+      color: $c_error;
+      display: block; // IE11
+      display: initial;
+    }
+    & + .fm-Message + .fm-Message-warning {
+      display: block; // IE11
+      display: initial;
+    }
+  }
+
+  // Child element having icon
+  .with-icon {
+    display: flex;
+    //flex: 1;
+    flex-direction: row;
+    align-items: center;
+    > * {
+      // The field itself
+      &:first-child {
+        flex: 1;
+      }
+      // The icon on the right
+      &:last-child {
+        @include text-link($c_medium_grey3, $c_medium_grey3, $c_white, $c_grey);
+        display: flex;
+        flex: 1;
+        max-width: calc(45px - 1em); // The same as text field size
+        width: calc(45px - 1em);
+        height: calc(45px - 1em);
+        justify-content: center;
+        flex-direction: column;
+        > .fa {
+          //margin: auto;
+          font-size: 20px;
+          align-self: center;
+        }
+      }
+    }
+    > a,
+    > button {
+      &:last-child {
+        @include text-link($c_medium_grey3, $c_blue, $c_blue, $c_grey);
+      }
+    }
+    // Button does not behave like <a> so has to be styled separately
+    > button {
+      background-color: transparent;
+      border-radius: 0;
+      &:last-child {
+        max-width: 45px;
+        max-height: 45px;
+        height: 45px;
+        align-items: center;
+        margin: 0;
+      }
+    }
+  }
+  .with-logo {
+    align-items: center;
+    > * {
+      &:first-child {
+        max-width: 80px;
+      }
+    }
+  }
+}
+
+// Message box under field, mostly used for error message
+.fm-Message,
+.fm-Message-warning {
+  font-size: $t_size-normal;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+  padding: 0.25em 0 0 3.25em;
+  display: none;
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    left: 1em;
+  }
+}
+.fm-Message:before {
+  @extend %error;
+}
+.fm-Message-warning:before {
+  @extend %notification ;
+}
+
+// Form label
+label, .label {
+  display: flex;
+  font-size: $t_size-normal;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: {
+    left: $box-padding / 4;
+  }
+  span {
+    font-weight: $t_weight-normal;
+    padding-left: 0.5em;
+  }
+  & + input, & + textarea {
+    margin-top: $box-padding / 4;
+    &:focus {
+      margin-top: calc(#{$box-padding} / 4 - 1px);
+    }
+  }
+}
+
+// Form button
+input, button, .btn, .text {
+  display: flex;
+  border-radius: 4px;
+  height: 2em;
+  margin: $box-padding-vertical/2  0;
+  border: 0;
+  font-size: $t_size-normal;
+  outline: none;
+  text-decoration: none;  // in case btn is used for a-tags with role="button"
+}
+input[type=submit], .btn {
+  height: 4.5em;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: $t_size-normal;
+  > span {
+    border-bottom: 1px solid transparent;
+    margin: 0 auto;
+    line-height: normal;
+  }
+}
+
+
+// Text form field
+input[type=text], input[type=password], input[type=email], input[type=tel], textarea {
+  border: 1px solid $c_light_grey3;
+  padding: 8px 12px;
+  &:focus {
+    outline: none;
+    border: {
+      width: 2px;
+      color: $c_blue;
+    }
+     margin: {
+       left: -1px;
+       bottom: calc(#{$box-padding-vertical} / 2 - 1px);
+     }
+    //padding: 7px 11px; // to avoid jumping fields
+  }
+}
+// Text element which is not a form field but presents text similar way
+.text {
+  padding: 2px 8px;
+  border-bottom: 1px solid $c_light_grey3;
+}
+textarea {
+  font-size: $t_size-normal;
+  height: 10em;
+  border-radius: 4px;
+  margin: $box-padding-vertical/2  0;
+  outline: none;
+}
+
+
+// Controls placeholder (cancel, submit etc.)
+.fm-Controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+//  margin: 0 $box-padding-horizontal;
+  padding: $box-padding-vertical $box-padding-horizontal / 2 $box-padding-vertical $box-padding-horizontal / 2;
+  flex-wrap: wrap;
+  > * {
+    // width: calc(50% - #{$box-padding-horizontal} / 2);
+    padding: 0 $box-padding-horizontal;
+    margin: 0 $box-padding-horizontal / 2 $box-padding-vertical $box-padding-horizontal / 2;
+    white-space: nowrap;
+  }
+
+  &.with-Action {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &.with-Normal.with-Action {
+    flex-direction: row-reverse;
+    > * {
+      flex: 1 1 0;
+      // @include mobile {
+      //   flex: 1 1 50%; // workaround for iOS Safari flex-wrap bug
+      // }
+    }
+    &.reverse-Order {
+      flex-direction: row;
+    }
+  }
+
+  &.with-Action-centered {
+    align-items: center;
+  }
+}
+
+// Normal button
+.btn-Normal {
+  color: $c_grey;
+  background-color: $c_white;
+  border: 1px solid $c_light_grey3;
+  outline: none;
+  &:hover {
+    border-color: $c_medium_grey3;
+    background-color: $c_light_grey;
+  }
+  &:active {
+    border-color: $c_blue;
+    background-color: $c_light_grey;
+  }
+  &:focus {
+    border-color: $c_blue;
+    background-color: $c_light_grey;
+    > span {
+      border-bottom-color: $c_blue;
+    }
+  }
+}
+// Action button
+.btn-Action {
+  color: $c_white;
+  background-color: $ca_normal;
+  &:hover {
+    border-color: $ca_hover-border;
+    background-color: $ca_hover;
+  }
+  &:active {
+    border-color: $ca_active-border;
+    background-color: $ca_active;
+    > span {
+      border-bottom-color: $ca_active_border;
+    }
+  }
+  &:focus {
+    border-color: $c_blue2;
+    background-color: $ca_focus;
+    > span {
+      border-bottom-color: $ca_focus_border;
+    }
+  }
+  &:disabled {
+    color: $ca_button_disabled-text;
+    background-color: $ca_button_disabled-bg;
+    border-color: $ca_button_disabled-bg;
+  }
+  &:disabled:hover {
+    color: $ca_button_disabled-text;
+    background-color: $ca_button_disabled-bg;
+  }
+}
+
+// Progress container
+.fm-Progress_Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+}
+// Progress dots
+.fm-Progress_Dot {
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 1em;
+  background-color: $c_medium_grey;
+  margin: 0 0.25em;
+  &.current,
+  &.active {
+    width: 1em;
+    height: 1em;
+    background-color: $c_blue;
+  }
+}
+
+.fm-form_link {
+  font-size: $t_size-normal;
+  margin-top: 0.5em;
+  a {
+    padding: 0.5em;
+  }
+}
+
+
+// Disabled but visible form
+.disabled {
+  color: $c_grey;
+
+  // Disable buttons
+  .btn {
+    color: $c_medium_grey3;
+    background-color: $c_light_grey;
+    pointer-events: none;
+    cursor: default;
+    border-color: $c_light_grey;
+  }
+  a {
+    color: $c_medium_grey3;
+    pointer-events: none;
+    cursor: default;
+  }
+  .with-Link a span {
+    border-bottom-color: $c_medium_grey;
+  }
+}
+
+// Radio buttons
+.fm-RadioButtons {
+  margin: 1em 0;
+  position: relative;
+  border: 1px solid $ca_list-border;
+  border-radius: 4px;
+  input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    outline: none;
+  }
+  input[type=radio] + label {
+    position: relative;
+    cursor: pointer;
+    text-transform: none;
+    margin: 0;
+    padding: 1.4286em 1.4286em 1.4286em 2.8571em;
+    border-bottom: 1px solid $ca_list-border;
+    &:before {
+      display: block;
+      position: absolute;
+      top: 50%;
+      margin-top: -11px; // Half of height and one pixel of border
+      left: 10px;
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: $c_white;
+      border: 1px solid $ca_radiobutton-border;
+      border-radius: 15px;
+      margin-right: 5px;
+    }
+  }
+  input[type=radio]:checked + label:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -5px; // Half of height
+    left: 16px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 7px;
+    background-color: $c_blue;
+  }
+  input[type=radio]:hover + label,
+  input[type=radio]:focus + label {
+    background-color: $ca_list_grey_element-hover-bg;
+  }
+  input[type=radio]:last-of-type + label {
+    border-bottom: none;
+  }
+}
+
+.fm-RadioButtons.with-Logo {
+  input[type=radio] + label {
+    padding: {
+      left: 1.4286 / 2 * 1em;
+      right: 1.4286 / 2 * 1em;
+    }
+    &:before {
+      left: auto;
+      right: 5px;
+    }
+  }
+  input[type=radio]:checked + label:after {
+    left: auto;
+    right: 16px;
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    height: 50px;
+    width: 80px;
+    background-color: $c_white;
+    border-radius: 2px;
+    margin-right: 20px;
+    overflow: hidden;
+    img {
+          width: 100%;
+    }
+  }
+}
+
+// When there is a label element, buttons are closer to it
+.label + .fm-RadioButtons {
+  margin-top: 0.5em;
+}
+
+.fm-RadioButtons_Info {
+  flex: 1;
+  display: block;
+  font-weight: $t_weight-normal;
+  padding: 0 2em 0 0;
+  max-width: 100%;
+}
+
+
+// Checkbox
+.fm-Checkbox {
+  margin: 0;
+  position: relative;
+  border: 1px solid $ca_list-border;
+  border-radius: 4px;
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    outline: none;
+  }
+  input[type=checkbox] + label {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    text-transform: none;
+    margin: 0;
+    padding: 0.7857em 1.7142em 0.7857em 1.1429em;
+    border-bottom: 1px solid $ca_list-border;
+    &:after {
+      display: block;
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: $c_white;
+      border: 1px solid $ca_radiobutton-border;
+      border-radius: 4px; 
+    }
+  }
+  input[type=checkbox]:checked + label:after {
+    @extend %checked;
+
+  }
+  input[type=checkbox]:hover + label,
+  input[type=checkbox]:focus + label {
+    background-color: $ca_list_grey_element-hover-bg;
+  }
+  input[type=checkbox]:last-of-type + label {
+    border-bottom: none;
+  }
+}
+
+.fm-Checkbox_Info {
+  flex: 1;
+  display: block;
+  font-weight: $t_weight-normal;
+  padding: 0 0.5em 0 0;
+  max-width: 100%;
+}
+
+.fm-Checkbox_Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 80px;
+  padding-left: 0;
+  background-color: $ca_list-bg;
+  border-radius: 2px;
+  margin-right: 20px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}

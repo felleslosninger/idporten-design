@@ -1,0 +1,59 @@
+/*
+* Styles for accordion with eid-lists or other content
+*
+* ECSS naming convention for classes is used: .[namespace][-ModuleOrComponent][_ChildNode][-variant]
+* For more information: http://ecss.io
+*
+* Namespace: la (list-accordion)
+*/
+
+.la-List {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  background-color: $ca_list-bg;
+
+  .la-List_Region {
+    display: none;
+    border-bottom: 1px solid $c_medium_grey3;
+
+    &.open {
+      display: block;
+    }
+  }
+
+}
+
+.la-List_Element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: $t_size-normal;
+  font-weight: $t_weight_bolder;
+  line-height: 1.5em;
+  text-decoration: none;
+  color: $ca_body-text;
+  padding: 1rem 1.4rem;
+  text-decoration: none;
+  border-bottom: 1px solid $c_medium_grey3;
+  .fa-angle-down {
+    font-weight: $t_weight_bolder;
+    font-size: $t_size-large;
+    &.addAnimation {
+      animation: turndown 0.3s ease;
+      animation-fill-mode: forwards;
+    }
+  }
+  &[aria-expanded='true'] {
+    .fa-angle-down {
+      animation: turnup 0.3s ease;
+      animation-fill-mode: forwards;
+    }
+  }
+  &:hover, &:focus {
+    color: $ca_list_element-hover-text;
+    background-color: $ca_list_element-hover-bg;
+  }
+}

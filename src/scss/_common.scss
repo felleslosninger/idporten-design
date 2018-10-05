@@ -160,3 +160,13 @@ table {
     }
   }
 }
+
+.trailing-text {
+	font-weight: normal;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 250px;
+	display: block;
+	overflow: hidden;
+	padding-left: 1em;
+}
