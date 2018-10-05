@@ -10,7 +10,7 @@ $box-text_link-active_border: $c_grey;
 $box-text_link-size: $t_size-normal;
 
 $box-help-icon: #c2c3c4;
-$box-border-color: #d3d3d3;;
+$box-border-color: $c_medium_grey3;
 $box-text_link-padding: 0.5em;
 
 $box-padding: 2rem;
@@ -105,7 +105,7 @@ $box-padding-vertical: $box-padding / 2;
 // Box header
 .Box_header {
   padding: 0 $box-padding-horizontal / 2 0 $box-padding-horizontal / 2;
-  border-bottom: 1px solid $ca_list-border;
+  border-bottom: 1px solid $box-border-color;
 }
 
 // Box footer

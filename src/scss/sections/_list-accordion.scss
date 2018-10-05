@@ -15,7 +15,7 @@
 
   .la-List_Region {
     display: none;
-    border-bottom: 1px solid $ca_list-border;
+    border-bottom: 1px solid $c_medium_grey3;
 
     &.open {
       display: block;
@@ -37,7 +37,7 @@
   color: $ca_body-text;
   padding: 1rem 1.4rem;
   text-decoration: none;
-  border-bottom: 1px solid $ca_list-border;
+  border-bottom: 1px solid $c_medium_grey3;
   .fa-angle-down {
     font-weight: $t_weight_bolder;
     font-size: $t_size-large;
