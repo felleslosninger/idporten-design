@@ -19,7 +19,8 @@ const menuEvents  = () => {
     event.preventDefault();
     const $currentTrigger = $(event.currentTarget);
     const $selectedMenu = $currentTrigger.parent('.h-Menu');
-    if ($selectedMenu.hasClass('h-Menu-open') || $selectedMenu.hasClass('h-Menu-preOpened') ) { // menu is open
+    let isMobile = $('.h-Menu_Trigger-mobile').is(':visible');
+    if ($selectedMenu.hasClass('h-Menu-open') || ($selectedMenu.hasClass('h-Menu-preOpened') && isMobile)) {
       $selectedMenu.removeClass('h-Menu-open'); // close it
       $selectedMenu.removeClass('h-Menu-preOpened'); // If user chose to close preopened menu (mobile)
       $currentTrigger.attr('aria-expanded', 'false');
@@ -38,6 +39,12 @@ const menuEvents  = () => {
         $(event.currentTarget).parent('.h-Menu').hasClass('h-Menu-open')) {
           event.preventDefault();
           $lastElement.focus();
+    } else if (event.keyCode === 27) { // escape key to close lang dropdown
+      event.preventDefault();
+      let $currentTrigger = $(event.currentTarget);
+      let $selectedMenu = $currentTrigger.parent('.h-Menu');
+      $selectedMenu.removeClass('h-Menu-open'); // close it
+      $currentTrigger.attr('aria-expanded', 'false');
     }
   });
 
