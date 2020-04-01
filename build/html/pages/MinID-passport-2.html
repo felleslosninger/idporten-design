@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html dir="ltr" lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>[BUILD] PAGE TITLE</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../fonts/open-sans/open-sans.css">
+    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link type="text/css" rel="stylesheet" href="../../css/style.css" />
+
+</head>
+
+<body>
+    <!--[if lt IE 11]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- SECTION: HEADER -->
+
+    <header class='h-Main'>
+
+        <div class='h-Main_Content'>
+            <a href="" class="h_Main_Content_Link"><span class="fa fa-angle-left fa-lg" aria-hidden="true"></span><span>Back</span></a>
+
+            <!-- NOTE: placholder class must be present, even if it has no content -->
+            <div class="h-Main_Content_Placeholder">
+                <!-- NOTE: Present on pages with service provider name and logo. Visible on mobile sreens only. -->
+                <span class="h-Main_Content_Provider">NAV</span>
+            </div>
+
+            <a href='' role='button' class='h-Menu_Trigger-mobile'><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <!-- /SECTION: HEADER -->
+
+
+    <main>
+
+        <section class='Box'>
+            <!-- NOTE: provider is added twice: above box title (this one) and below box.
+The one above title is displayed on desktop only. the one below on mobile only. -->
+            <div class='Box_Section Box_Section-ServiceProvider'>
+                <div class='Box_Section_Title'>NAV</div>
+                <img src='../../images/nav-logo.gif' alt='tjenestetilbyders logo' />
+            </div>
+            <div class='Box_header'>
+                <h1 class='Box_header-title with-logo logo-eid-gray'>LOG IN WITH MINID</h1>
+                <div class="Box_header-provider"><img src="../../images/svg/minid-m-kant.svg" alt="MinID logo"></div>
+
+            </div>
+
+            <div class='Box_main'>
+                <!-- Progress dots -->
+                <div class='fm-Progress_Container'>
+                    <div class='fm-Progress_Dot'></div>
+                    <div class='fm-Progress_Dot active'></div>
+                </div>
+                <!-- /Progress dots -->
+
+                <!-- Notification -->
+                <div class='notification icon-sms'>
+                    <div class='highlight'>Last logged in: 07.06.2017 kl: 10:01</div>
+                </div>
+                <!-- /Notification -->
+
+                <!-- Form -->
+                <form action='#'>
+                    <div class='fm-Fields'>
+                        <!-- When fm-Field gets class .error then input and span.message change their look and present the error message -->
+                        <div class='fm-Field'>
+                            <label for='mobile'>Code from sms <span>(5 digits)</span></label>
+                            <input id='mobile' type='text' maxlength='5' placeholder='Code from sms (5 digits)' />
+                            <!-- NOTE: is 5 always the correct number of digits? -->
+                        </div>
+                        <span class='fm-Message'>Please fill in the code from the sms received</span>
+                    </div>
+
+                    <!-- Controls placeholder with two buttons -->
+                    <div class='fm-Controls with-Normal with-Action'>
+                        <button class='btn btn-Action' type='submit'><span>Next</span></button>
+                        <button class='btn btn-Normal'><span>Cancel</span></button>
+                    </div>
+                    <!-- //Controls placeholder with two buttons -->
+
+                </form>
+            </div>
+
+            <div class='Box_footer'>
+            </div>
+        </section>
+        <!-- NOTE: provider is added twice: above box title and below box (this one).
+  The one above title is displayed on desktop only. the one below on mobile only. -->
+        <div class='mi-Provider'><img src='../../images/nav-logo.gif' alt='Nav logo' /></div>
+    </main>
+    <!-- /build -->
+
+    <!-- SECTION: FOOTER -->
+
+    <footer class="f-Main">
+        <div class='f-Main_Content'>
+            <div class='f-Main_Logo' aria-hidden="true"></div>
+            <div class='f-Main_Info'>
+                <a href="" class='f-Main_Link'><span>Contact form</span></a>
+                <a href="tel:+4780030300" class='f-Main_Link'><span>Tel: 800 30 300</span></a>
+                <a href="" class='f-Main_Link'><span>Help to log in</span></a>
+                <a href="" class='f-Main_Link'><span>Security and privacy</span></a>
+                <p>Operated by the Norwegian Digitalisation Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- /SECTION: FOOTER -->
+
+    <script type="text/javascript" src="../../js/vendor.min.js"></script>
+    <script type="text/javascript" src="../../js/accordion.js"></script>
+    <script type="text/javascript" src="../../js/country-selector.js"></script>
+    <script type="text/javascript" src="../../js/disabled-links.js"></script>
+    <script type="text/javascript" src="../../js/header.js"></script>
+    <script type="text/javascript" src="../../js/minid-menu.js"></script>
+    <script type="text/javascript" src="../../js/tab.js"></script>
+    <script type="text/javascript" src="../../js/toggleMenues.js"></script>
+    <script type="text/javascript" src="../../js/toggleForm.js"></script>
+    <script type="text/javascript" src="../../js/check-enable-save.js"></script>
+    <script type="text/javascript" src="../../js/radio-enable-save.js"></script>
+</body>
+
+</html>

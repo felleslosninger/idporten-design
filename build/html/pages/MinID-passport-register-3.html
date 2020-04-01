@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html dir="ltr" lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>[BUILD] PAGE TITLE</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../fonts/open-sans/open-sans.css">
+    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link type="text/css" rel="stylesheet" href="../../css/style.css" />
+
+</head>
+
+<body>
+    <!--[if lt IE 11]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- SECTION: HEADER -->
+
+    <header class='h-Main'>
+
+        <div class='h-Main_Content'>
+            <a href="" class="h_Main_Content_Link"><span class="fa fa-angle-left fa-lg" aria-hidden="true"></span><span>Tilbake</span></a>
+
+            <!-- NOTE: placholder class must be present, even if it has no content -->
+            <div class="h-Main_Content_Placeholder">
+                <!-- NOTE: Present on pages with service provider name and logo. Visible on mobile sreens only. -->
+                <span class="h-Main_Content_Provider">Leikanger kommune</span>
+            </div>
+
+            <a href='' role='button' class='h-Menu_Trigger-mobile'><span class="fa fa-bars"></span></a>
+            <div class='h-Menu_Container' id='js-menues'>
+                <nav class='h-Menu'>
+                    <a href='' role='button' aria-haspopup="true" aria-expanded="false" class='h-Menu_Trigger'><span>Kontaktdetaljer</span><span class='fa fa-angle-down fa-lg' aria-hidden="true"></span></a>
+                    <ul>
+                        <li><a href="" class="h-Main_Menu_Element js-last"><span>Endre</span></a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+    </header>
+
+    <!-- /SECTION: HEADER -->
+
+
+    <main>
+
+        <section class='Box'>
+            <!-- NOTE: provider is added twice: above box title (this one) and below box.
+The one above title is displayed on desktop only. the one below on mobile only. -->
+            <div class='Box_header'>
+                <h1 class='Box_header-title with-logo logo-eid-gray'>Register as a new MinID user</h1>
+                <div class='Box_header-provider'><img src='../../images/svg/minid-m-kant.svg' alt='MinID logo' /></div>
+            </div>
+
+            <div class='Box_main'>
+                <!-- Progress dots -->
+                <div class='fm-Progress_Container'>
+                    <div class='fm-Progress_Dot'></div>
+                    <div class='fm-Progress_Dot'></div>
+                    <div class='fm-Progress_Dot'></div>
+                    <div class='fm-Progress_Dot active'></div>
+                    <div class='fm-Progress_Dot'></div>
+                    <div class='fm-Progress_Dot'></div>
+                </div>
+                <!-- /Progress dots -->
+
+                <!-- Notification -->
+                <div class='notification with-Icon with-Link'>
+                    Benytt din personlige e-postadresse, ikke jobbadresse eller andres.
+                </div>
+                <!-- /Notification -->
+
+                <!-- Form -->
+                <form action='#'>
+                    <div class='fm-Fields'>
+                        <!-- When fm-Field gets class .error then input and span.message change their look and present the error message -->
+                        <div class='fm-Field'>
+                            <label for='email'>E-mail</label>
+                            <input id='email' type='email' placeholder='E-mail' />
+                        </div>
+                        <span class='fm-Message'>Please fill in your email address</span>
+                        <div class='fm-Field'>
+                            <label for='repeat'>Repeat E-mail</label>
+                            <input id='repeat' type='email' placeholder='Repeat e-mail' />
+                        </div>
+                        <span class='fm-Message'>The e-mail addresses do not match</span>
+                    </div>
+
+                    <!-- Controls placeholder with two buttons -->
+                    <div class='fm-Controls with-Normal with-Action'>
+                        <button class='btn btn-Action' type='submit'><span>Next</span></button>
+                        <button class='btn btn-Normal'><span>Cancel</span></button>
+                    </div>
+                    <!-- //Controls placeholder with two buttons -->
+
+                </form>
+            </div>
+
+            <div class='Box_footer'>
+                <div class='Box_footer-links'>
+                    <!-- <ul> -->
+                    <!-- <li><a href='#'><span>Slik skaffer du elektronisk ID</span></a></li> -->
+                    <!-- <li><a href='#'><span>Menu 2</span></a></li> -->
+                    <!-- </ul> -->
+                </div>
+
+                <!-- <div class='Box_footer-help'>
+  <a href='#'><span class='fa fa-question-circle'></span><span class='visuallyHidden'>Help</span></a>
+</div> -->
+            </div>
+        </section>
+        <!-- NOTE: provider is added twice: above box title and below box (this one).
+  The one above title is displayed on desktop only. the one below on mobile only. -->
+        <div class='mi-Provider'><img src='../../images/nav-logo.gif' alt='Nav logo' /></div>
+    </main>
+    <!-- /build -->
+
+    <!-- SECTION: FOOTER -->
+
+    <footer class="f-Main">
+        <div class='f-Main_Content'>
+            <div class='f-Main_Logo' aria-hidden="true"></div>
+            <div class='f-Main_Info'>
+                <a href="" class='f-Main_Link'><span>Kontaktskjema</span></a>
+                <a href="tel:+4780030300" class='f-Main_Link'><span>Tlf: 800 30 300</span></a>
+                <a href="" class='f-Main_Link'><span>Hjelp til innlogging</span></a>
+                <a href="" class='f-Main_Link'><span>Sikkerhet og personvern</span></a>
+                <p>Driftet av Direktoratet for forvaltning og IKT (Difi)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- /SECTION: FOOTER -->
+
+    <script type="text/javascript" src="../../js/vendor.min.js"></script>
+    <script type="text/javascript" src="../../js/accordion.js"></script>
+    <script type="text/javascript" src="../../js/country-selector.js"></script>
+    <script type="text/javascript" src="../../js/disabled-links.js"></script>
+    <script type="text/javascript" src="../../js/header.js"></script>
+    <script type="text/javascript" src="../../js/minid-menu.js"></script>
+    <script type="text/javascript" src="../../js/tab.js"></script>
+    <script type="text/javascript" src="../../js/toggleMenues.js"></script>
+    <script type="text/javascript" src="../../js/toggleForm.js"></script>
+    <script type="text/javascript" src="../../js/check-enable-save.js"></script>
+    <script type="text/javascript" src="../../js/radio-enable-save.js"></script>
+</body>
+
+</html>
